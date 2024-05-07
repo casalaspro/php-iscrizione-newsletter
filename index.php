@@ -1,8 +1,18 @@
 <?php
+$name = $_GET['name'];
+$lastname = $_GET['lastname'];
+$password = $_GET['password'];
+$email = $_GET['email'];
 
 
-
-
+// echo "<br>";
+// echo $name;
+// echo "<br>";
+// echo $lastname;
+// echo "<br>";
+// echo $password;
+// echo "<br>";
+// echo $email;
 ?>
 
 <!DOCTYPE html>
@@ -20,27 +30,65 @@
       
       <h1>Email Subscription</h1>
       <p class="text-secondary">Insert your infromations in the form below, please.</p>
-      <form class="row">
+      <form class="row" action="./index.php" method="get">
         <div class="mb-3 col-6">
           <label for="insertName" class="form-label">Name</label>
-          <input type="email" class="form-control" id="insertName">
+          <input type="text" name="name" class="form-control" id="insertName">
         </div>
         <div class="mb-3 col-6">
           <label for="insertLastname" class="form-label">Lastname</label>
-          <input type="email" class="form-control" id="insertLastname">
+          <input type="text" name="lastname" class="form-control" id="insertLastname">
         </div>
         <div class="mb-3 col-6">
           <label for="insertEmail" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="insertEmail">
+          <input type="text" name="email" class="form-control" id="insertEmail">
         </div>
         <div class="mb-3 col-6">
           <label for="insertPassword" class="form-label">Password</label>
-          <input type="password" class="form-control" id="insertPassword">
+          <input type="password" name="password" class="form-control" id="insertPassword">
         </div>
         <!-- <div class="mb-3 form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Subscribe me to the newsletter</label>
         </div> -->
+
+        <!-- ALERT -->
+        <div class="mb-3 col-12">
+          <?php
+            if(isset($email)){
+              if(str_contains($email, "@") && str_contains($email, ".")){
+                ?>
+                
+                <div class="alert alert-warning" role="alert">
+                  Perfect! Your email is: <?php $email ?>
+                </div>
+                <?php
+              }else if(!str_contains($email, "@")){
+                ?>
+                <div class="alert alert-warning" role="alert">
+                  Error: Missing @. Please insert valid email.
+                </div>
+                <?php
+              }else if(!str_contains($email, ".")){
+                ?>
+                <div class="alert alert-warning" role="alert">
+                  Error: Missing dot. Please insert valid email.
+                </div>
+                <?php
+              }else{
+                ?>
+                <div class="alert alert-warning" role="alert">
+                  Error: Missing @ and dot. Please insert valid email.
+                </div>
+                
+                <?php
+              }
+            }
+          ?>
+        </div>
+
+
+        <!-- END ALERT -->
         <button type="submit" class="btn btn-primary ms-2 col-1">Submit</button>
       </form>
 
