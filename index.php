@@ -1,10 +1,3 @@
-<?php
-$name = $_GET['name'];
-$lastname = $_GET['lastname'];
-$password = $_GET['password'];
-$email = $_GET['email'];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,38 +32,9 @@ $email = $_GET['email'];
         </div>
 
         <!-- ALERT -->
+        
         <div class="mt-3 mb-3 col-12">
-          <?php
-            if(isset($email)){
-              if(str_contains($email, "@") && str_contains($email, ".")){
-                ?>
-
-                <div class="alert alert-warning" role="alert">
-                  Perfect! Your email is: <?php $email ?>
-                </div>
-                <?php
-              }else if(!str_contains($email, "@")){
-                ?>
-                <div class="alert alert-warning" role="alert">
-                  Error: Missing @. Please insert a valid email.
-                </div>
-                <?php
-              }else if(!str_contains($email, ".")){
-                ?>
-                <div class="alert alert-warning" role="alert">
-                  Error: Missing dot. Please insert a valid email.
-                </div>
-                <?php
-              }else{
-                ?>
-                <div class="alert alert-warning" role="alert">
-                  Error: Missing @ and dot. Please insert a valid email.
-                </div>
-                
-                <?php
-              }
-            }
-          ?>
+          <?php include __DIR__ . "/partials/utilities.php" ?>
         </div>
 
 
@@ -78,6 +42,7 @@ $email = $_GET['email'];
         <button type="submit" class="btn btn-primary ms-2 col-1">Submit</button>
       </form>
 
+      
 
     </div>
   </section>
