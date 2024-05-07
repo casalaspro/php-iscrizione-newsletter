@@ -3,16 +3,6 @@ $name = $_GET['name'];
 $lastname = $_GET['lastname'];
 $password = $_GET['password'];
 $email = $_GET['email'];
-
-
-// echo "<br>";
-// echo $name;
-// echo "<br>";
-// echo $lastname;
-// echo "<br>";
-// echo $password;
-// echo "<br>";
-// echo $email;
 ?>
 
 <!DOCTYPE html>
@@ -47,18 +37,14 @@ $email = $_GET['email'];
           <label for="insertPassword" class="form-label">Password</label>
           <input type="password" name="password" class="form-control" id="insertPassword">
         </div>
-        <!-- <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Subscribe me to the newsletter</label>
-        </div> -->
 
         <!-- ALERT -->
-        <div class="mb-3 col-12">
+        <div class="mt-3 mb-3 col-12">
           <?php
             if(isset($email)){
               if(str_contains($email, "@") && str_contains($email, ".")){
                 ?>
-                
+
                 <div class="alert alert-warning" role="alert">
                   Perfect! Your email is: <?php $email ?>
                 </div>
@@ -66,19 +52,19 @@ $email = $_GET['email'];
               }else if(!str_contains($email, "@")){
                 ?>
                 <div class="alert alert-warning" role="alert">
-                  Error: Missing @. Please insert valid email.
+                  Error: Missing @. Please insert a valid email.
                 </div>
                 <?php
               }else if(!str_contains($email, ".")){
                 ?>
                 <div class="alert alert-warning" role="alert">
-                  Error: Missing dot. Please insert valid email.
+                  Error: Missing dot. Please insert a valid email.
                 </div>
                 <?php
               }else{
                 ?>
                 <div class="alert alert-warning" role="alert">
-                  Error: Missing @ and dot. Please insert valid email.
+                  Error: Missing @ and dot. Please insert a valid email.
                 </div>
                 
                 <?php
